@@ -64,15 +64,71 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
-                boxShadow: BoxShadow(),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
               ),
             ),
             ProfileBox(),
+            ListPhotosBox(),
           ],
         ),
       ),
     );
   }
+}
+
+class ListPhotosBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: double.infinity,
+      margin: EdgeInsets.only(top: 380),
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      //child:
+      child: TripComponent(),
+    );
+  }
+}
+
+class TripComponent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text('data'),
+              FlatButton(
+                onPressed: () {},
+                child: Text('Create New'),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          
+        ],
+      ),
+    );
+  }
+
+Widget _tripItens(BuildContext context, int index) {
+  return Container(
+    child: Text('data'),
+  );
+}
+
 }
 
 class ProfileBox extends StatelessWidget {
